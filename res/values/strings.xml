@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Soccer Hub</string>
+    <string name="home">Home</string>
+    <string name="vote">Vote</string>
+    <string name="member">Member</string>
+    <string name="login">Login</string>
+    <string name="favourite">Favourite</string>
+    <string name="lastMatch">Last Matches</string>
+    <string name="status_waiting">Waiting</string>
+    <string name="readDayStr">Read Days</string>
+    <string name="leagueTodayStr">Today</string>
+    <string name="leagueStr">League</string>
+    <string name="name">Name</string>
+    <string name="title_activity_read_day_actitity">Today</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_league_today">League Today</string>
+    <string name="title_activity_league">LeagueActivity</string>
+    <string name="title_activity_league_matches">LeagueMatchesActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="FT">FT</string>
+    <string name="title_activity_spinning">SpinningActivity</string>
+    <string name="title_active_tips">Active Tips</string>
+    <string name="tips_today">TIPS for Today : SGD 1.50 </string>
+    <string name="tips_month">TIPS for One Month : SGD 10.25 </string>
+    <string name="tips_year">TIPS for One Year : SGD 50.50 </string>
+    <string name="tips_label">TIPS  : </string>
+    <string name="odds_label">ODDS : </string>
+    <string name="title_activity_active_tips">ActiveTipsActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="already_reg">Already Registered</string>
+    <string name="action_login">Login</string>
+    <string name="yet_register">Haven\'t Registered yet</string>
+    <string name="register">Register</string>
+    <string name="invalid_login">Invalid email/password. Please check </string>
+</resources>

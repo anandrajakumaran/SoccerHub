@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.a1bizs.soccerhub"
+    android:versionCode="2"
+    android:versionName="1.1" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- for most things, including card.io & paypal -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/soccer_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:uiOptions="splitActionBarWhenNarrow" >
+        <service
+            android:name="com.paypal.android.sdk.payments.PayPalService"
+            android:exported="false" />
+
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentCompletedActivity" />
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+        <activity
+            android:name="com.a1bizs.soccerhub.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.member.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.member.MemberActivity"
+            android:label="@string/title_activity_member"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.MatchActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.LastMatchActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.vote.VoteActivity"
+            android:label="@string/title_activity_vote"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.favourite.FavouriteActivity"
+            android:label="@string/title_activity_favourite"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.readDays.ReadDayActitity"
+            android:label="@string/title_activity_read_day_actitity" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.leagueToday.TodayActivity"
+            android:label="@string/title_activity_league_today" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.leagueToday.LeagueActivity"
+            android:label="@string/title_activity_league" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.leagueToday.LeagueMatchesActivity"
+            android:label="@string/title_activity_league_matches" >
+        </activity>
+        <activity
+            android:name="test.TestActivity"
+            android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.SpinningActivity"
+            android:label="@string/soccer_hub">
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.ActiveTipsActivity"
+            android:label="@string/title_active_tips" >
+        </activity>
+        <activity
+            android:name="com.a1bizs.soccerhub.RegisterActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
+    </application>
+
+</manifest>
