@@ -29,7 +29,7 @@ import org.json.JSONObject;
 import com.a1bizs.soccerhub.conf.CONFIG;
 import com.a1bizs.soccerhub.favourite.FavouriteActivity;
 import com.a1bizs.soccerhub.leagueToday.TodayActivity;
-import com.a1bizs.soccerhub.member.LoginActivity;
+import com.a1bizs.soccerhub.member.Login;
 import com.a1bizs.soccerhub.member.MemberActivity;
 import com.a1bizs.soccerhub.model.ListItem;
 import com.a1bizs.soccerhub.model.memberDb;
@@ -75,7 +75,7 @@ public class RegisterActivity extends Activity {
 		login.setOnClickListener(
 				new View.OnClickListener() {
 		       public void onClick(View v){
-		             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+		             Intent intent = new Intent(getBaseContext(), Login.class);
 		             startActivity(intent);
 		       }
 		} );
@@ -117,7 +117,7 @@ public class RegisterActivity extends Activity {
             if(utilityData.isLogin(this) == true)
             	memberActivity = new Intent(getApplicationContext(), MemberActivity.class);
             else
-            	memberActivity = new Intent(getApplicationContext(), LoginActivity.class);
+            	memberActivity = new Intent(getApplicationContext(), Login.class);
             startActivity(memberActivity);
             overridePendingTransition (CONFIG.ACTIVITY_NO_ANIM, CONFIG.ACTIVITY_NO_ANIM);
             return true;
@@ -195,7 +195,8 @@ new AsyncTask<Void, Void, Void>() {
 					user.setEmail(email.getText().toString());
 					user.setPassword(pass.getText().toString());
 					HttpClient httpclient = new DefaultHttpClient();
-					HttpPut httpput = new HttpPut("http://appsa1bizssg.org/register/register");
+				//	HttpPut httpput = new HttpPut("http://appsa1bizssg.org/register/register");
+					HttpPut httpput = new HttpPut("http://appsa1bizssg.org/android_login_api/");
 					ObjectMapper mapper = new ObjectMapper();
 						String json = mapper.writeValueAsString(user);
 						Log.d("JSSSSSSSSS", json);

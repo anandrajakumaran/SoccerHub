@@ -387,8 +387,12 @@ public class LoginActivity extends Activity
 			user = new memberDb();
 			user.setEmail(mEmailView.getText().toString());
 			user.setPassword(mPasswordView.getText().toString());
+			user.setTag("login");
+			
 			HttpClient httpclient = new DefaultHttpClient();
-			HttpPost httppost = new HttpPost("http://appsa1bizssg.org/register/login");
+		
+			HttpPost httppost = new HttpPost("http://appsa1bizssg.org/admin/learn2crack_login_api/");
+		//	HttpPost httppost = new HttpPost("http://appsa1bizssg.org/android_login_api/");
 			ObjectMapper mapper = new ObjectMapper();
 				String json = mapper.writeValueAsString(user);
 				Log.d("JSSSSSSSSS", json);

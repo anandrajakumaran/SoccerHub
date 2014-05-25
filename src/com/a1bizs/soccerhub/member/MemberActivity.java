@@ -127,7 +127,7 @@ Intent intent = new Intent(this, PayPalService.class);
 			removePreference(PREFERENCE_CONF.IS_LOGIN);
 			removePreference(PREFERENCE_CONF.IS_ADMIN);
 			
-            Intent loginActivity = new Intent(getBaseContext(), LoginActivity.class);
+            Intent loginActivity = new Intent(getBaseContext(), Login.class);
             try
     		{
     			replaceContentView("loginActivity", loginActivity);
@@ -207,7 +207,7 @@ Intent intent = new Intent(this, PayPalService.class);
             if(utilityData.isLogin(this) == true)
             	memberActivity = new Intent(getApplicationContext(), MemberActivity.class);
             else
-            	memberActivity = new Intent(getApplicationContext(), LoginActivity.class);
+            	memberActivity = new Intent(getApplicationContext(), Login.class);
             startActivity(memberActivity);
             overridePendingTransition (CONFIG.ACTIVITY_NO_ANIM, CONFIG.ACTIVITY_NO_ANIM);
             return true;

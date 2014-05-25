@@ -12,6 +12,7 @@ import com.a1bizs.soccerhub.conf.PREFERENCE_CONF;
 import com.a1bizs.soccerhub.favourite.FavouriteActivity;
 import com.a1bizs.soccerhub.lastMatches.LastMatchActivity;
 import com.a1bizs.soccerhub.leagueToday.TodayActivity;
+import com.a1bizs.soccerhub.member.Login;
 import com.a1bizs.soccerhub.member.LoginActivity;
 import com.a1bizs.soccerhub.member.MemberActivity;
 import com.a1bizs.soccerhub.model.goalDb;
@@ -119,7 +120,7 @@ public class VoteActivity extends Activity implements OnTouchListener, OnClickLi
 			minTxt.setText(goal.getMinute()+"'");
 			minTxt.setWidth(withMinTxt);
 			minTxt.setHeight(childHeight);
-			minTxt.setBackground(getResources().getDrawable(R.color.match_goal));
+			minTxt.setBackgroundDrawable(getResources().getDrawable(R.color.match_goal));
 			minTxt.setGravity(Gravity.CENTER_VERTICAL);
 			
 			
@@ -486,7 +487,7 @@ public class VoteActivity extends Activity implements OnTouchListener, OnClickLi
             if(utilityData.isLogin(this) == true)
             	memberActivity = new Intent(getApplicationContext(), MemberActivity.class);
             else
-            	memberActivity = new Intent(getApplicationContext(), LoginActivity.class);
+            	memberActivity = new Intent(getApplicationContext(), Login.class);
             startActivity(memberActivity);
             overridePendingTransition (CONFIG.ACTIVITY_NO_ANIM, CONFIG.ACTIVITY_NO_ANIM);
             return true;

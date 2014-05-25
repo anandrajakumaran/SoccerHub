@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.a1bizs.soccerhub"
-    android:versionCode="2"
-    android:versionName="1.1" >
+    android:versionCode="3"
+    android:versionName="1.2" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -111,6 +111,39 @@
         <activity
             android:name="com.a1bizs.soccerhub.RegisterActivity"
             android:label="@string/title_activity_register" >
+        </activity>
+        
+        
+        <!-- - For Login -->
+              <activity
+            android:name="com.a1bizs.soccerhub.member.Login"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
+        </activity>
+              <activity
+            android:name="com.a1bizs.soccerhub.member.ChangePassword"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
+        </activity>
+          <activity
+            android:name="com.a1bizs.soccerhub.member.Main"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
+        </activity>
+           <activity
+            android:name="com.a1bizs.soccerhub.member.PasswordReset"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
+        </activity>
+            <activity
+            android:name="com.a1bizs.soccerhub.member.Register"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
+        </activity>
+         <activity
+            android:name="com.a1bizs.soccerhub.member.Registered"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

@@ -32,7 +32,6 @@
 	        android:layout_height="wrap_content"
 	        android:layout_alignTop="@+id/progressBar1"
 	        android:layout_centerHorizontal="true"
-	        android:fontFamily="sans-serif-light"
 	        android:text="@string/status_waiting"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
     </RelativeLayout>

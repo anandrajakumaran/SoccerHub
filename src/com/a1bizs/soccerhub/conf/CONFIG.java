@@ -3,8 +3,8 @@ package com.a1bizs.soccerhub.conf;
 import android.graphics.Color;
 
 public abstract class CONFIG {
-	public final static String ADMIN_EMAIL		  = "admin@gmail.com";
-	public final static String ADMIN_PWD		  = "12345";
+	public final static String ADMIN_EMAIL		  = "anandnandha@gmail.com";
+	public final static String ADMIN_PWD		  = "andyh123";
 	public final static int ADMIN_ID	   		  = 0;
 	
 	public final static int TIME_REFRESH          = 6000000;

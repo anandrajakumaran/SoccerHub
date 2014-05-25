@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".LoginActivity" >
+    tools:context=".Login" >
 
     <RelativeLayout
       android:layout_width="match_parent"
@@ -51,7 +51,6 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:layout_marginBottom="16dp"
-	            android:fontFamily="sans-serif-light"
 	            android:text="@string/login_progress_signing_in"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    </RelativeLayout>

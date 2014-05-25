@@ -7,6 +7,7 @@ import com.a1bizs.soccerhub.conf.PREFERENCE_CONF;
 import com.a1bizs.soccerhub.favourite.FavouriteActivity;
 import com.a1bizs.soccerhub.leagueToday.TodayActivity;
 import com.a1bizs.soccerhub.member.LoginActivity;
+import com.a1bizs.soccerhub.member.Login;
 import com.a1bizs.soccerhub.member.MemberActivity;
 import com.a1bizs.soccerhub.model.countryDb;
 import com.a1bizs.soccerhub.model.countryDbHandler;
@@ -99,7 +100,7 @@ public class MainActivity extends Activity {
 		if (Build.VERSION.SDK_INT >= 11) {
 	        Point size = new Point();
 	        try {
-	            this.getWindowManager().getDefaultDisplay().getRealSize(size);
+	            this.getWindowManager().getDefaultDisplay().getSize(size);
 	            width  = size.x;
 	            height = size.y;
 	        } catch (NoSuchMethodError e) {
@@ -172,7 +173,7 @@ public class MainActivity extends Activity {
             if(utilityData.isLogin(this) == true)
             	memberActivity = new Intent(getApplicationContext(), MemberActivity.class);
             else
-            	memberActivity = new Intent(getApplicationContext(), LoginActivity.class);
+            	memberActivity = new Intent(getApplicationContext(), Login.class);
             startActivity(memberActivity);
             overridePendingTransition (CONFIG.ACTIVITY_NO_ANIM, CONFIG.ACTIVITY_NO_ANIM);
             return true;

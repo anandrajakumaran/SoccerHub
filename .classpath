@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Thilak/workspace/SoccerTips/libs/PayPalAndroidSDK.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Thilak/Documents/jackson/jackson-annotations-2.2.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Thilak/Documents/jackson/jackson-core-2.2.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Thilak/Documents/jackson/jackson-core-asl-1.9.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Thilak/Documents/jackson/jackson-databind-2.2.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Thilak/Documents/jackson/jackson-mapper-asl-1.9.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="F:/SoccerHubs/SoccerHub/lib/jackson-annotations.jar"/>
+	<classpathentry exported="true" kind="lib" path="F:/SoccerHubs/SoccerHub/lib/jackson-core-asl.jar"/>
+	<classpathentry exported="true" kind="lib" path="F:/SoccerHubs/SoccerHub/lib/jackson-databind.jar"/>
+	<classpathentry exported="true" kind="lib" path="F:/SoccerHubs/SoccerHub/lib/jackson-mapper-asl.jar"/>
+	<classpathentry exported="true" kind="lib" path="F:/SoccerHubs/SoccerHub/lib/jackson-xc.jar"/>
+	<classpathentry exported="true" kind="lib" path="F:/SoccerHubs/SoccerHub/lib/PayPalAndroidSDK.jar"/>
+	<classpathentry exported="true" kind="lib" path="F:/SoccerHubs/SoccerHub/libs/android-support-v4.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

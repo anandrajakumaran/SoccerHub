@@ -6,7 +6,15 @@ public class memberDb {
     String name;
     String email;
     String password;
-    boolean verified;
+    String tag;
+    public String getTag() {
+		return tag;
+	}
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
+	boolean verified;
      
     
 	public int getId() {

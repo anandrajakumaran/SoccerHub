@@ -13,6 +13,7 @@ import com.a1bizs.soccerhub.SpinningActivity;
 import com.a1bizs.soccerhub.conf.CONFIG;
 import com.a1bizs.soccerhub.favourite.FavouriteActivity;
 import com.a1bizs.soccerhub.leagueToday.TodayActivity;
+import com.a1bizs.soccerhub.member.Login;
 import com.a1bizs.soccerhub.member.LoginActivity;
 import com.a1bizs.soccerhub.member.MemberActivity;
 import com.a1bizs.soccerhub.model.goalDb;
@@ -211,7 +212,7 @@ public class LastMatchActivity extends Activity implements OnClickListener   {
             if(utilityData.isLogin(this) == true)
             	memberActivity = new Intent(getApplicationContext(), MemberActivity.class);
             else
-            	memberActivity = new Intent(getApplicationContext(), LoginActivity.class);
+            	memberActivity = new Intent(getApplicationContext(), Login.class);
             startActivity(memberActivity);
             overridePendingTransition (CONFIG.ACTIVITY_NO_ANIM, CONFIG.ACTIVITY_NO_ANIM);
             return true;
