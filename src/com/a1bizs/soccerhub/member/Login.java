@@ -8,6 +8,7 @@ package com.a1bizs.soccerhub.member;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -15,9 +16,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,10 +32,12 @@ import com.a1bizs.soccerhub.MatchActivity;
 import com.a1bizs.soccerhub.R;
 import com.a1bizs.soccerhub.SpinningActivity;
 import com.a1bizs.soccerhub.conf.CONFIG;
+import com.a1bizs.soccerhub.conf.PREFERENCE_CONF;
 import com.a1bizs.soccerhub.favourite.FavouriteActivity;
 import com.a1bizs.soccerhub.leagueToday.TodayActivity;
 import com.a1bizs.soccerhub.member.DatabaseHandler;
 import com.a1bizs.soccerhub.member.UserFunctions;
+import com.a1bizs.soccerhub.model.memberDb;
 import com.a1bizs.soccerhub.utility.utilityData;
 
 import java.io.IOException;
@@ -39,7 +46,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Login extends Activity {
+	
+	private memberDb user;
 
+	InputMethodManager imm;
     Button btnLogin;
     Button Btnregister;
     Button passreset;
@@ -56,14 +66,78 @@ public class Login extends Activity {
     private static String KEY_LASTNAME = "lname";
     private static String KEY_EMAIL = "email";
     private static String KEY_CREATED_AT = "created_at";
-
-
+    
+	public void savePreference(String key, String value)
+	{
+		SharedPreferences sharedPreferences = PreferenceManager
+											  .getDefaultSharedPreferences(this);
+		Editor editor = sharedPreferences.edit();
+		editor.putString(key, value);
+		editor.commit();
+	}
+		
+	public void changeMemberActivity(String memberId, String memberName)
+	{
+		Intent memberActivity = new Intent(getBaseContext(), MemberActivity.class);
+		try
+		{
+			replaceContentView("activity4", memberActivity);
+		}
+		catch(Exception e)
+		{
+			String msg = e.getMessage();
+			Log.d("Change Activity", msg);
+		}
+		 
+	}
+	
+	public void savePreferences(String key, boolean value) 
+	{
+		SharedPreferences sharedPreferences = PreferenceManager
+											  .getDefaultSharedPreferences(this);
+		Editor editor = sharedPreferences.edit();
+		editor.putBoolean(key, value);
+		editor.commit();
+	}
+	
+	
+	public void replaceContentView(String id, Intent newIntent) 
+	{
+		try
+		{
+			newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(newIntent);
+			overridePendingTransition (CONFIG.ACTIVITY_NO_ANIM, CONFIG.ACTIVITY_NO_ANIM);
+		}
+		catch(Exception e)
+		{
+			String msg = e.getMessage();
+			Log.d("Change Activity", msg);
+		}
+	}
+	
+	public void checkLogin()
+	{
+		SharedPreferences sharedPreferences = PreferenceManager
+											  .getDefaultSharedPreferences(this);
+		boolean isLogin = sharedPreferences.getBoolean(PREFERENCE_CONF.IS_LOGIN, false);
+		if(isLogin == false)
+			return;
+		
+		String memberId   = sharedPreferences.getString(PREFERENCE_CONF.MEM_ID, "");
+		String memberName = sharedPreferences.getString(PREFERENCE_CONF.MEM_NAME, "");
+		
+		changeMemberActivity(memberId, memberName);
+	}
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login_2);
-
+        
+		imm = (InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE);
+		
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.pword);
         Btnregister = (Button) findViewById(R.id.registerbtn);
@@ -225,16 +299,48 @@ public class Login extends Activity {
                         pDialog.setMessage("Loading User Space");
                         pDialog.setTitle("Getting Data");
                         DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+                        
+                     
+        				
                         JSONObject json_user = json.getJSONObject("user");
                         /**
                          * Clear all previous data in SQlite database.
                          **/
                         UserFunctions logout = new UserFunctions();
                         logout.logoutUser(getApplicationContext());
+                    
                         db.addUser(json_user.getString(KEY_FIRSTNAME),json_user.getString(KEY_LASTNAME),json_user.getString(KEY_EMAIL),json_user.getString(KEY_USERNAME),json_user.getString(KEY_UID),json_user.getString(KEY_CREATED_AT));
                        /**
                         *If JSON array details are stored in SQlite it launches the User Panel.
                         **/
+                        user = new memberDb();
+                    	user.setEmail(json_user.getString(KEY_EMAIL).toString());
+            			user.setPassword(inputPassword.getText().toString());
+            			user.setId(Integer.parseInt(json_user.getString(KEY_UID)));
+            			user.setName(json_user.getString(KEY_FIRSTNAME));
+            			user.setVerified(true);
+                     // close keyboard
+        				imm.hideSoftInputFromWindow(inputEmail.getWindowToken(), 0); 
+        				
+        				//memberDb memberLogin = MainActivity.memberHandle.getMember(mEmail, mPassword);
+        				// save Preference --> login state until user log out
+        				savePreference(PREFERENCE_CONF.MEM_ID, json_user.getString(KEY_UID));
+        				savePreference(PREFERENCE_CONF.MEM_NAME,json_user.getString(KEY_FIRSTNAME));
+        				savePreferences(PREFERENCE_CONF.IS_LOGIN, true);
+        				
+        				if(inputEmail.equals(CONFIG.ADMIN_EMAIL) && inputPassword.equals(CONFIG.ADMIN_PWD))
+        					savePreferences(PREFERENCE_CONF.IS_ADMIN, true);
+        				
+        				try
+        				{
+        					changeMemberActivity(KEY_UID, KEY_USERNAME);
+        				}
+        				catch(Exception e)
+        				{
+        					String msg = e.getMessage();
+        					Log.d("Member Ac", msg);
+        				}
+        				
                         Intent upanel = new Intent(getApplicationContext(), MemberActivity.class);
                         upanel.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         pDialog.dismiss();

@@ -335,7 +335,7 @@ public class utilityData
     	catch (Throwable t) 
     	{
             String msg = t.getMessage();
-            Log.d("read", msg);
+           // Log.d("read", msg);
         }
 	}
 	
