@@ -253,6 +253,10 @@ public class TodayList extends ArrayAdapter<countryDb>
 		{
 			imageView.setImageResource(R.drawable.colombia);
 
+		}else 	if(country.equalsIgnoreCase("Singapore"))
+		{
+			imageView.setImageResource(R.drawable.singapore);
+
 		}else{
 			
 			imageView.setImageResource(R.drawable.not_available);
